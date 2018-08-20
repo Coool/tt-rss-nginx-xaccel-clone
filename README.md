@@ -20,4 +20,4 @@ via NGINX_XACCEL_PREFIX in ```config.php```:
 	}
 ```
 
-Don't forget to enable ```sendfile``` in nginx configuration.
+More info here: https://www.nginx.com/resources/wiki/start/topics/examples/xsendfile/
