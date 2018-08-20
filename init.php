@@ -17,7 +17,8 @@ class Nginx_Xaccel extends Plugin {
 
 	function hook_send_local_file($filename) {
 
-		if (defined('NGINX_XACCEL_PREFIX') && NGINX_XACCEL_PREFIX) {
+		if (defined('NGINX_XACCEL_PREFIX') && NGINX_XACCEL_PREFIX &&
+				mb_strpos($filename, "cache/") === 0) {
 
 			$mimetype = mime_content_type($filename);
 
