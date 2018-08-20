@@ -19,3 +19,5 @@ via NGINX_XACCEL_PREFIX in ```config.php```:
 		internal;
 	}
 ```
+
+Don't forget to enable ```sendfile``` in nginx configuration.
