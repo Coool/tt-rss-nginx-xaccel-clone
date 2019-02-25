@@ -6,7 +6,8 @@ class Nginx_Xaccel extends Plugin {
 		return array(1.0,
 			"Sends static files via nginx X-Accel-Redirect header",
 			"fox",
-			true);
+			true,
+			"https://git.tt-rss.org/fox/ttrss-nginx-xaccel");
 	}
 
 	function init($host) {
