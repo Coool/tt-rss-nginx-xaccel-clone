@@ -13,13 +13,14 @@ class Nginx_Xaccel extends Plugin {
 	function init($host) {
 		$this->host = $host;
 
+		Config::add("NGINX_XACCEL_PREFIX", "/tt-rss");
+
 		$host->add_hook($host::HOOK_SEND_LOCAL_FILE, $this);
 	}
 
 	function hook_send_local_file($filename) {
 
-		if (defined('NGINX_XACCEL_PREFIX') && NGINX_XACCEL_PREFIX &&
-				mb_strpos($filename, "cache/") === 0) {
+		if (Config::get("NGINX_XACCEL_PREFIX") && mb_strpos($filename, "cache/") === 0) {
 
 			$mimetype = mime_content_type($filename);
 
@@ -34,7 +35,7 @@ class Nginx_Xaccel extends Plugin {
 			$stamp = gmdate("D, d M Y H:i:s", filemtime($filename)) . " GMT";
 			header("Last-Modified: $stamp", true);
 
-			header("X-Accel-Redirect: " . NGINX_XACCEL_PREFIX . "/" . $filename);
+			header("X-Accel-Redirect: " . Config::get("NGINX_XACCEL_PREFIX") . "/" . $filename);
 
 			return true;
 		}
