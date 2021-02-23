@@ -2,15 +2,14 @@
 
 ## Installation
 
-Git clone to tt-rss/plugins.local/nginx_xaccel
+Git clone to `plugins.local/nginx_xaccel`
 
 ## Configuration
 
-Setup redirect prefix for nginx (should lead to tt-rss base directory) 
-via NGINX_XACCEL_PREFIX in ```config.php```:
+Setup redirect prefix for nginx (should lead to tt-rss base directory) via `.env`:
 
 ```
- 	define('NGINX_XACCEL_PREFIX', '/tt-rss');
+TTRSS_NGINX_XACCEL_PREFIX=/tt-rss
 ```
 
 ```
